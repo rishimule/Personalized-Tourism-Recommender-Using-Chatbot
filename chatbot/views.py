@@ -1,9 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import time
+import datetime as dtt
 from datetime import date
 from datetime import datetime
 from pprint import pprint as pp
+
+# Import Models
+from .models import Search
 
 # Get base folder
 from django.conf import settings
@@ -163,14 +167,33 @@ def FromChatbotView(request):
     #         }
 
     user_inputs = {
+        'name'        : data['city'],
+        'age'         : int(data['age']),
         'city_name'   : data['city'],
         'state_name'  : data['state'],
+        'startdate'   : data['startdate'],
+        'enddate'     : data['enddate'],
         'radius_km'   : int(data['radius']),
         'days'        : int(data['days']),
         'no_of_people': int(data['people']),
         'is_child'    : data['child']=='TRUE',
         'is_elder'    : data['elder']=='TRUE',
     }
+    
+    row_entry = Search(username = request.user.username,
+                        name = user_inputs['name'],
+                        age = user_inputs['age'],
+                        people = user_inputs['no_of_people'],
+                        child_in_group = user_inputs['is_child'],
+                        elder_in_group = user_inputs['is_elder'],
+                        startdate = datetime.strptime(user_inputs['startdate'], '%d-%m-%Y').date(),
+                        enddate = datetime.strptime(user_inputs['enddate'], '%d-%m-%Y').date(),
+                        state = user_inputs['state_name'],
+                        current_city = user_inputs['city_name'],
+                        days = user_inputs['days'],
+                        radius = user_inputs['radius_km']
+                       )
+    row_entry.save()
 
     # import cities data
     df = pd.read_hdf('cities.hdf','df')
@@ -192,13 +215,17 @@ def FromChatbotView(request):
         if new_days <= 1:
             new_days = 1
         smalldf = df[df['distance'] < new_radius]   
-        print(f'Now: {new_radius}')    
+        print(f'Now Radius: {new_radius}')    
     
     # Get Weighted Scores    
     cities_df = assign_popular_based_score(smalldf,(user_inputs['is_child'] or user_inputs['is_elder']))
         
     # Printing
+    print()
+    print(cities_df)
+    print()
     print(cities_df.head())
+    print(request.user.username)
     city_results = cities_df.head().to_dict('records')
     
         
