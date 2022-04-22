@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import indexView
+from .views import indexView,register_request
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -25,5 +25,6 @@ urlpatterns = [
     path('places/', include('places.urls', namespace='places')),
     path('login/', LoginView.as_view(template_name='accounts/login.html',redirect_authenticated_user=True), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path("register/", register_request, name="register"),
 ]
 

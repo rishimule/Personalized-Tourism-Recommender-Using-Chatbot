@@ -1,0 +1,64 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+<!-- st -->
+{% block header %}
+<link rel="stylesheet" href="{% static 'table/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+<!-- en -->
+{% endblock header %}
+
+
+<!-- st -->
+{% block content %}
+<div class="card shadow">
+    <div class="card-header py-3">
+        <p class="text-primary m-0 fw-bold">Search History</p>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive text-center table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+            <table class="table table-hover table-sm my-0" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>No. of People</th>
+                        <th>Children</th>
+                        <th>Senior Citizen</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Distance Radius</th>
+                        <th>Results</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for search in search_list %}
+                    <tr>
+                        <td>{{search.time_stamp.date}}<br>{{search.time_stamp.time}}</td>
+                        <td>{{search.name}}</td>
+                        <td>{{search.age}}</td>
+                        <td>{{search.people}}</td>
+                        <td>{{search.child_in_group}}</td>
+                        <td>{{search.elder_in_group}}</td>
+                        <td>{{search.startdate}}</td>
+                        <td>{{search.enddate}}</td>
+                        <td>{{search.current_city}}</td>
+                        <td>{{search.state}}</td>
+                        <td>{{search.radius}}</td>
+                        <td><a class="btn btn-success btn-icon-split" role="button" href="http://127.0.0.1:8000/chatbot/recommend?name={{search.name}}&age={{search.age}}&people={{search.people}}&child={{search.child_in_group}}&elder={{search.elder_in_group}}&startdate={{search.startdate|date:'d-m-Y'}}&enddate={{search.enddate|date:'d-m-Y'}}&city={{search.current_city}}&state={{search.state}}&radius={{search.radius}}&history=TRUE"><span class="text-white-50 icon"><i class="fas fa-check"></i></span><span class="text-white text">Result</span></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'table/js/theme.js' %}"></script>
+<!--  -->
+{% endblock content %}
+
+{% block footer %}{% endblock footer %}

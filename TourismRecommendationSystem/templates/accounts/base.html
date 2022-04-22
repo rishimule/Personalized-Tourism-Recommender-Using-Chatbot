@@ -1,0 +1,70 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>{{city.City|upper}}</title>
+    <link rel="stylesheet" href="{% static 'places/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css" />
+    {% block header %}{% endblock header %}
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Start: Header White -->
+        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white portfolio-navbar">
+            <div class="container">
+                <a class="navbar-brand logo" href="/">T.R.S</a
+          ><button
+            data-bs-toggle="collapse"
+            class="navbar-toggler"
+            data-bs-target="#navbarNav"
+          >
+            <span class="visually-hidden">Toggle navigation</span
+            ><span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item item">
+                <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item item">
+                    <a class="nav-link" href="/#about">About</a>
+                </li>
+                </ul>
+            </div>
+    </div>
+    </nav>
+    <!-- End: Header White -->
+    <main class="page project-page">
+        <div class="container-fluid">
+            {% block content %}{% endblock content %}
+        </div>  
+    </main>
+    </div>
+    <!-- Start: Footer Gradient -->
+    {% block footer %}
+    <footer class="page-footer gradient">
+        <div class="container">
+            <div class="links"><a href="#">About us</a></div>
+            <div class="social-icons">
+                <a href="#"><i class="icon ion-social-facebook"></i></a
+          ><a href="#"><i class="icon ion-social-instagram-outline"></i></a
+          ><a href="#"><i class="icon ion-social-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- End: Footer Gradient -->
+    {% endblock footer %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'places/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="{% static 'places/js/theme.js' %}"></script>
+    <script src="{% static 'js/chatbot.js' %}"></script>
+</body>
+
+</html>

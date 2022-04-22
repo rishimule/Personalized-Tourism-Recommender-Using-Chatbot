@@ -1,13 +1,14 @@
 from django.db import models
 from django.forms import IntegerField
 from django.urls import reverse, reverse_lazy
+from django.utils.timezone import now
 
 def _(x):
     return x
 
 # Create your models here.
 class Search(models.Model):
-    username = models.CharField(max_length=50, default='anonymous', blank=False, null=False)
+    username = models.CharField(max_length=50, blank=True, null=True)
     name = models.CharField(max_length=250, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
     people = models.IntegerField(blank=True, null=True)
@@ -19,6 +20,7 @@ class Search(models.Model):
     current_city = models.CharField(max_length=150, blank=True, null=True)
     days = models.IntegerField(blank=True, null=True)
     radius = models.IntegerField(blank=True, null=True)
+    time_stamp = models.DateTimeField(default=now, editable=False)
     
 
     class Meta:

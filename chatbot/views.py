@@ -145,7 +145,6 @@ def assign_popular_based_score(cities_df, c_or_e):
 def indexView(request):
     return HttpResponse("This is chatbot index page!")
 
-
 def FromChatbotView(request):
     # http://127.0.0.1:8000/chatbot/recommend?name=Rishi+Mule&age=4&people=4&child=FALSE&elder=TRUE&startdate=05-06-2022&enddate=10-06-2022&city=Mumbai&state=Maharashtra&radius=350
     
@@ -167,7 +166,7 @@ def FromChatbotView(request):
     #         }
 
     user_inputs = {
-        'name'        : data['city'],
+        'name'        : data['name'],
         'age'         : int(data['age']),
         'city_name'   : data['city'],
         'state_name'  : data['state'],
@@ -176,24 +175,26 @@ def FromChatbotView(request):
         'radius_km'   : int(data['radius']),
         'days'        : int(data['days']),
         'no_of_people': int(data['people']),
-        'is_child'    : data['child']=='TRUE',
-        'is_elder'    : data['elder']=='TRUE',
+        'is_child'    : data['child'].upper()=='TRUE',
+        'is_elder'    : data['elder'].upper()=='TRUE',
+        # 'history'     : data['history'].upper()!='TRUE',
     }
     
-    row_entry = Search(username = request.user.username,
-                        name = user_inputs['name'],
-                        age = user_inputs['age'],
-                        people = user_inputs['no_of_people'],
-                        child_in_group = user_inputs['is_child'],
-                        elder_in_group = user_inputs['is_elder'],
-                        startdate = datetime.strptime(user_inputs['startdate'], '%d-%m-%Y').date(),
-                        enddate = datetime.strptime(user_inputs['enddate'], '%d-%m-%Y').date(),
-                        state = user_inputs['state_name'],
-                        current_city = user_inputs['city_name'],
-                        days = user_inputs['days'],
-                        radius = user_inputs['radius_km']
-                       )
-    row_entry.save()
+    if not 'history' in data.keys():
+        row_entry = Search(username = request.user.username,
+                            name = user_inputs['name'],
+                            age = user_inputs['age'],
+                            people = user_inputs['no_of_people'],
+                            child_in_group = user_inputs['is_child'],
+                            elder_in_group = user_inputs['is_elder'],
+                            startdate = datetime.strptime(user_inputs['startdate'], '%d-%m-%Y').date(),
+                            enddate = datetime.strptime(user_inputs['enddate'], '%d-%m-%Y').date(),
+                            state = user_inputs['state_name'],
+                            current_city = user_inputs['city_name'],
+                            days = user_inputs['days'],
+                            radius = user_inputs['radius_km']
+                        )
+        row_entry.save()
 
     # import cities data
     df = pd.read_hdf('cities.hdf','df')

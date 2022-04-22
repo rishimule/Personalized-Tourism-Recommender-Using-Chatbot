@@ -3,8 +3,17 @@ import pandas as pd
 import numpy as np
 from pprint import pprint as pp
 
+from chatbot.models import Search
+
 
 # Functions
+def SearchHistoryView(request):
+    curuser = request.user
+    print(curuser)
+    search_list = Search.objects.filter(username = curuser.username)
+    return render(request, template_name='history/search_history.html', context={"search_list":search_list})
+
+
 
 def weighted_rating(v,m,R,C):
     '''
