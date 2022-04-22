@@ -17,6 +17,8 @@ This project is made using :
 $ git clone https://github.com/radonintro1234/Personalized-Tourism-Recommender-Using-Chatbot.git
 
 $ cd Personalized-Tourism-Recommender-Using-Chatbot
+
+$ pip install -r requirements.txt
 ```
 
 ## Usage
