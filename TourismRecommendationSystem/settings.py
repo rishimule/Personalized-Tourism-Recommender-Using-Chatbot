@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h6(w9lb)mnatmp&g!u!4j^judv^d(@qgdoqckirk59m4avpztj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'chatbot',
     'places',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
