@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TRS</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#">trs</a><button data-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                value="Menu"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#about">About us</a></li>
+                    <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#download">recommend me!</a></li>
+                    <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#contact">contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image:url('{% static 'img/intro-bg.jpg' %}');">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="brand-heading">Welcome</h1>
+                        <p class="intro-text">Get Recommended with Awesome Places&nbsp;<br>to visit.</p><a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa fa-angle-double-down animated"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="text-center content-section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>About US</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione earum odio tenetur maiores nisi alias, accusantium ab. Ad obcaecati debitis veniam quod consequatur! Nostrum tenetur hic accusantium temporibus, ducimus ipsum?</p>
+                    <p></p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nulla rerum molestiae libero aliquid debitis voluptatem repellat corrupti voluptatum itaque ipsam totam delectus aspernatur eius, expedita fugiat consequatur magnam repellendus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="text-center download-section content-section" id="download" style="background-image:url('{% static 'img/downloads-bg.jpg' %}');">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+                <h1>Get recommendations!</h1>
+                <p>You can personalized Recommendations&nbsp; for free on the page linked below.</p><button class="btn btn-primary btn-lg btn-default" type="button">Recommend me!</button>
+            </div>
+        </div>
+    </section>
+    <section class="text-center content-section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Contact us</h2>
+                    <p>Feel free to leave us a comment on our&nbsp;<a href="#">Twitter handle</a>&nbsp; or our&nbsp;<a href="#">GitHub Repo</a> to give some feedback about our Project!</p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li class="list-inline-item">&nbsp;<button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-twitter fa-fw"></i><span class="network-name">&nbsp;Twitter</span></button></li>
+                        <li class="list-inline-item">&nbsp;<button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-github fa-fw"></i><span class="network-name">&nbsp;github</span></button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container text-center">
+            <p>Copyright © T.R.S. 2022</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{% static 'js/grayscale.js' %}"></script>
+    <script src="{% static 'js/chatbot.js' %}"></script>
+</body>
+
+</html>

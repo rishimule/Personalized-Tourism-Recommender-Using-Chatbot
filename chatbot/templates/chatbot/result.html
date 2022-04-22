@@ -1,0 +1,79 @@
+{% extends 'chatbot/base.html' %} {% load static %}
+<!-- Title -->
+{% block title %}RESULT CHATBOT{% endblock title %} {% block headblock %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css" /> {% endblock headblock %}
+
+<!-- Start content Block -->
+{% block content %}
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+    <div class="container">
+        <a class="navbar-brand logo" href="/">T.R.S.</a
+    ><button
+      data-toggle="collapse"
+      class="navbar-toggler"
+      data-target="#navbarNav"
+    >
+      <span class="sr-only">Toggle navigation</span
+      ><span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li> {% endcomment %}
+        </ul>
+    </div>
+    </div>
+</nav>
+<main class="page lanidng-page">
+    <section class="portfolio-block block-intro">
+        <div class="container-fluid">
+            <main class="page projects-page">
+                <section class="portfolio-block projects-cards">
+                    <div class="container">
+                        <!-- Start: portfolio heading -->
+                        <div class="heading">
+                            <h2>Your&nbsp; Recommendations!</h2>
+                        </div>
+                        <!-- End: portfolio heading -->
+                        <div class="row justify-content-evenly">
+                            <!-- Start: Duplicate this -->
+                            {% for city in city_results %}
+                            <div class="col-md-6 col-lg-4 bounce animated">
+                                <div class="card border-0">
+                                    <iframe allowfullscreen="" frameborder="0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyA3m6AD4ZJIf2B6CVDUcBMfaVs6Xq5hhns&amp;q={{city.City|urlencode}}%2C+{{city.state|urlencode}}%2C+India&amp;zoom=11" class="scale-on-hover" width="100%"
+                                        height="250"></iframe>
+                                    <hr />
+                                    <div class="card-body">
+                                        <h6><a target="_blank" rel="noopener noreferrer" href="{% url 'places:city' cityslug=city.slug %}">{{city.City}}</a></h6>
+                                        <p class="text-muted card-text">{{city.state}}, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- End: Duplicate this -->
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+</main>
+<footer class="page-footer">
+    <div class="container">
+        <div class="links">
+            <a href="/#about">About&nbsp;</a><a href="#">Contact Us</a
+      ><a href="#">Projects</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="icon ion-social-facebook"></i></a
+      ><a href="#"><i class="icon ion-social-instagram-outline"></i></a
+      ><a href="#"><i class="icon ion-social-twitter"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- End Content Block -->
+{% endblock content %}
