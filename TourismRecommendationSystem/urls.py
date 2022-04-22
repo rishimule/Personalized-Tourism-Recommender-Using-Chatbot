@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import indexView
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', indexView, name='index'),
     path('chatbot/', include('chatbot.urls', namespace='chatbot')),
     path('places/', include('places.urls', namespace='places')),
+    path('login/', LoginView.as_view(template_name='accounts/login.html',redirect_authenticated_user=True), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]
+

@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load static %}
+<!DOCTYPE html> {% load static %}
 <html>
 
 <head>
@@ -20,7 +19,11 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#about">About us</a></li>
                     <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#download">recommend me!</a></li>
-                    <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#contact">contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
