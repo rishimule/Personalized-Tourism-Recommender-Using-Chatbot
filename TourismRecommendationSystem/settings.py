@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-h6(w9lb)mnatmp&g!u!4j^judv^d(@qgdoqckirk59m4avpztj
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -125,6 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'TourismRecommendationSystem/static',]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/mediafiles/'
