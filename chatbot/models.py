@@ -21,6 +21,7 @@ class Search(models.Model):
     days = models.IntegerField(blank=True, null=True)
     radius = models.IntegerField(blank=True, null=True)
     time_stamp = models.DateTimeField(default=now, editable=False)
+    results = models.CharField( max_length=100000, blank=True, null=True)
     
 
     class Meta:

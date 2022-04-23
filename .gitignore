@@ -20,3 +20,8 @@ TourismRecommendationSystem/__pycache__/urls.cpython-39.pyc
 TourismRecommendationSystem/__pycache__/views.cpython-39.pyc
 TourismRecommendationSystem/__pycache__/wsgi.cpython-39.pyc
 db.sqlite3
+chatbot/migrations/0005_search_results.py
+chatbot/migrations/0006_alter_search_results.py
+chatbot/migrations/__pycache__/0005_search_results.cpython-39.pyc
+chatbot/migrations/__pycache__/0006_alter_search_results.cpython-39.pyc
+chatbot/migrations/*

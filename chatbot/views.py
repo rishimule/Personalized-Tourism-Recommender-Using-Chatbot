@@ -229,5 +229,9 @@ def FromChatbotView(request):
     print(request.user.username)
     city_results = cities_df.head().to_dict('records')
     
+    if not 'history' in data.keys():
+        row_entry.results = city_results
+        row_entry.save()
+        
         
     return render(request, 'chatbot/result.html', {'city_results': city_results})
