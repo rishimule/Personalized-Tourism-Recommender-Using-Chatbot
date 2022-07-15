@@ -1,5 +1,5 @@
 (function(d, m) {
-    var kommunicateSettings = { "appId": "44d4a6e6cd81dbee962960d44ed57865", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+    var kommunicateSettings = { "appId": "14baa981b110558e1b73e7d0d5ca6c21f", "popupWidget": true, "automaticChatOpenOnNavigation": true };
     var s = document.createElement("script");
     s.type = "text/javascript";
     s.async = true;

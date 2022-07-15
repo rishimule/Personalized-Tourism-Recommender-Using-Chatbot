@@ -81,12 +81,22 @@ WSGI_APPLICATION = 'TourismRecommendationSystem.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+    
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dcdr3f5e7fg3sm',
+        'USER': 'narpvvbqbwrath',
+        'PASSWORD': '66949522084969a01c4ca5f89e65bfaedf925d924d5009699fd21c36a563a2da',
+        'HOST': 'ec2-52-86-115-245.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}    
+    
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -138,3 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = "/"
+
+# Configure Django App for Heroku.
+import django_on_heroku
+django_on_heroku.settings(locals())
