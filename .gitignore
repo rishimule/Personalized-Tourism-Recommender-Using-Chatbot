@@ -25,3 +25,5 @@ chatbot/migrations/0006_alter_search_results.py
 chatbot/migrations/__pycache__/0005_search_results.cpython-39.pyc
 chatbot/migrations/__pycache__/0006_alter_search_results.cpython-39.pyc
 chatbot/migrations/*
+.vscode/launch.json
+.gitignore

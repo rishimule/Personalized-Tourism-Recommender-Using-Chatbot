@@ -24,8 +24,8 @@ TEMPLATES_DIR = BASE_DIR / 'TourismRecommendationSystem/templates'
 SECRET_KEY = 'django-insecure-h6(w9lb)mnatmp&g!u!4j^judv^d(@qgdoqckirk59m4avpztj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
