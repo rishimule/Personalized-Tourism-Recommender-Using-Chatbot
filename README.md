@@ -1,5 +1,8 @@
 # Personalized-Tourism-Recommender-Using-Chatbot
 
+## Demo:
+https://tourism-recommender.herokuapp.com
+
 ### Objectives:
 - The main objective of this system is to give better personalized recommendations of tourism places to users for better decision making. 
 - To design a user-friendly system with easy to understand interfaces.
